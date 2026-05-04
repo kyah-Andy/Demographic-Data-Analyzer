@@ -1,4 +1,8 @@
+import os
 import pandas as pd
+
+current_dir = os.path.dirname(__file__)
+file_path = os.path.join(current_dir, "data", "adult.data.csv")
 
 # Column names (dataset has no headers)
 columns = [
@@ -20,7 +24,7 @@ columns = [
 ]
 
 # Load dataset
-df = pd.read_csv("data/adult.data.csv", names=columns, skipinitialspace=True)
+df = pd.read_csv(file_path, names=columns, skipinitialspace=True)
 
 # Clean text columns (VERY IMPORTANT)
 df["education"] = df["education"].str.strip()
